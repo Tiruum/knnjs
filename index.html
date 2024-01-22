@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <script src="./chart.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="grid lg:grid-cols-2 md:grid-cols-1 h-screen">
+        <div id="chart-container">
+            <canvas id="chart"></canvas>
+        </div>
+    
+        <div id="form" class="flex flex-col p-6 bg-gray-50 rounded-xl shadow-lg h-fit m-auto w-96 gap-y-4">
+
+            <div>
+                <label for="humidity" class="block mb-2 text-sm font-medium text-gray-900">X axes</label>
+                <input type="text" id="humidity" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full px-3 py-2" placeholder="1" required>
+            </div>
+
+            <div>
+                <label for="pressure" class="block mb-2 text-sm font-medium text-gray-900">Y axes</label>
+                <input type="text" id="pressure" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full px-3 py-2" placeholder="2" required>
+            </div>
+
+            <div>
+                <label for="radius" class="block mb-2 text-sm font-medium text-gray-900">Radius: <b id="k">5</b></label>
+                <input id="radius" type="range" min="1" max="10" value="5" onchange="document.querySelector('#k').innerHTML = this.value" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+            </div>
+
+
+            <div class="flex gap-x-2 w-full justify-center">
+                <button id="plot" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Insert dot</button>
+                <button id="predict" class="text-white bg-green-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Predict</button>
+                <button id="delete" class="text-white bg-red-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Delete</button>
+            </div>
+            <span id="output"></span>
+        </div>
+    </div>
+
+
+
+
+    <script src="./data.ts"></script>
+    <script src="./config.ts"></script>
+    <script src="./index.ts"></script>
+</body>
+</html>
